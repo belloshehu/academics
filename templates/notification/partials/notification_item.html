@@ -1,0 +1,21 @@
+{% block item %}
+<p style="margin:1%;">
+        <i class="fa fa-bell text-warning"></i>
+        {{notification.title|title}} (
+        {% if notification.get_degree_display|lower == "info" %}
+            <span class="text-primary">{{notification.date_time_sent}} / {{notification.sender.get_full_name}}</span>
+        {% elif notification.get_degree_display|lower == "warning" %}
+            <span class="text-warning">{{notification.date_time_sent}} / {{notification.sender.get_full_name}}</span>
+        {% elif notification.get_degree_display|lower == "danger" %}
+            <span class="text-danger">{{notification.date_time_sent}} / {{notification.sender.get_full_name}}</span>
+        {% else %}
+            <span class="text-success">{{notification.date_time_sent}} / {{notification.sender.get_full_name}}</span>
+        {% endif %}
+    )
+    {% if notification.sender.id == user.id %}
+        <i class="fa fa-sign-out text-warning"></i>
+    {% else %}
+        <i class="fa fa-signin"></i>
+    {% endif %}
+</p>      
+{% endblock item %}

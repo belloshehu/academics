@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="jumbotron" style="margin:1% 1% 1% 1%; padding: 1%">
+        <div>
+            <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <div class="">
+                            <li class="breadcrumb-item active h4 text-danger" aria-current="page">{{course.title|title}}</li>
+                        </div>
+                        <div class="text-right">
+                            <a class="btn text-right" href="{% url 'course:course-update' course.id %}">
+                                <i class="fa fa-pencil text-dark"></i>
+                            </a>
+                        </div>
+                    </ol>
+            </nav>
+        </div>
+        <div class="bg-light">
+            <div class="">
+                <p class="text-dark text-left">Course code (<span class="text-warning">{{course.code}}</span>)</p><hr>
+                <p class="text-dark text-left">Credit unit (<span class="text-warning">{{course.credit_unit}}</span>)</p><hr>
+                <p class="text-dark text-left">Department (<span class="text-warning">{{course.get_department_display}}</span>)</p><hr>
+                <p class="text-dark text-left">Option (<span class="text-warning">{{course.get_option_display}}</span>)</p><hr>
+                <p class="text-dark text-left">Level (<span class="text-warning">{{course.get_level_display}}</span>)</p><hr>
+                <p class="text-dark text-left">Semester (<span class="text-warning">{{course.get_semester_display}}</span>)</p><hr>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

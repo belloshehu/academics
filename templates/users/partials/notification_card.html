@@ -1,0 +1,35 @@
+{% block notification_card %}
+    <div class="card">
+        <div class="card-header" id="heading-notification">
+        <h5 class="mb-0">
+            <div class="pull-left">
+                <button class="btn btn-link no-decorations collapsed" data-toggle="collapse" data-target="#collapse-notification" aria-expanded="false" aria-controls="collapseTwo">
+                   <i class="fa fa-bell"></i> Notifications <sup><scan class="badge badge-success text-light">{{notifications|length}}</scan></sup>
+                </button>
+            </div>
+            <div class="pull-right">
+                {% if user.is_staff or user.is_course_ref %}
+                    <a class="btn btn-success" href="{% url 'notification:notification-create' %}"><i class="fa fa-plus"></i> New</a>
+                {% endif %}
+            </div>
+        </h5>
+        </div>
+        <div id="collapse-notification" class="collapse" aria-labelledby="heading-notification" data-parent="#accordion">
+        <div class="card-body">
+            {% if notifications %}
+                {% for notification in notifications %}
+                    <div class="jumbotron" style="margin:1% 1% 1% 1%; padding: 5px">
+                        <a class="no-decorations mosque-central" href="{{notification.get_absolute_url}}">
+                            <div class="text-light">
+                                {% include 'notification/partials/notification_item.html' %}
+                            </div>
+                        </a>
+                    </div>
+                {%endfor%}
+            {% else %}
+                <div class=" text-danger alert-info">You have no notifications</div>
+            {% endif %}
+        </div>
+        </div>
+    </div>
+{% endblock notification_card %}

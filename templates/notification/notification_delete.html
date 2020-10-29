@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+    <div class="card" style="margin:1% 1% 1% 1%; padding: 1%">
+        <div class="row">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class=" breadcrumb-item text-danger h3">
+                            Notification deletion
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10 col-sm-12 ">
+                        {% for message in messages %}
+                            <em class="title text-danger">{{message}}</em>
+                        {% endfor %}
+                        <form action="{% url 'notification:notification-delete' notification.id %}" method='POST' class="">
+                            {% csrf_token %}             
+                            <div class="row">
+                                <p class="text-dark text-center"> Are you sure you want to delete  <em class="text-success"> {{notification.title}}</em>  notification?</p>
+                            </div>   
+                            <div><hr>
+                                <br>
+                                <button class="btn btn-primary text-light" type="submit" >Delete</button> 
+                                <a class="btn btn-success" href="{{notification.get_absolute_url}}">Cancel</a>  
+                                <br>
+                                <br>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+{% endblock content %}

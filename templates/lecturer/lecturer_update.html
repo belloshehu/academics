@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+<link type="text/css" rel="stylesheet" href="{% static 'style/style1.css'%}">
+{% block content %}
+<div class="text-dark text-center" style="margin: 1%;">
+    <div class="row">
+        <div class=" col-md-12 "><h1 class="text-warning">Lecturer Profile Update form</h1><br></div>
+    </div>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-md-6 col-sm-12 ">
+            {% for message in messages %}
+                <em class="title text-danger">{{message}}</em>
+            {% endfor %}
+            <form action="{% url 'lecturer:lecturer-update' lecturer.id %}" method='POST' class="">
+                {% csrf_token %}      
+                    <div class="row">
+                        <div class="col-md-12"> {{ form.department|as_crispy_field }} </div>
+                        <div class="col-md-12"> {{ form.option|as_crispy_field }} </div> 
+                        <div class="col-md-12"> {{ form.office|as_crispy_field }} </div> 
+                        <div class="col-md-12"> {{ form.photo|as_crispy_field }} </div> 
+                        <!--div class="col-md-12"> {{ form.gender|as_crispy_field }} </div-->     
+                    </div>   
+                    <div>
+                        <br>
+                        <button class="btn btn-primary text-light" type="submit" >Submit</button>   
+                        <br>
+                        <br>
+                    </div>
+            </form>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+{% endblock %}

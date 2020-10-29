@@ -1,0 +1,32 @@
+
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="jumbotron" style="margin:1% 1% 1% 1%; padding: 1%">
+        <div>
+            <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="">
+                            <img class="rounded-circle text-left" src="{{lecturer.photo.url}}" alt="{{lecturer.user.username}}" width="100" height="100">
+                        </li>
+                        <li class=" breadcrumb-item text-danger h3">
+                            {{lecturer.user.get_full_name|title}}
+                        </li>
+                        <li class="h3 text-right">
+                            <a class="btn text-right" href="{% url 'lecturer:lecturer-update' lecturer.id %}">
+                                <i class="fa fa-pencil text-dark"></i>
+                            </a>
+                        </li>
+                    </ol>
+            </nav>
+        </div>
+        <div class="bg-light">
+            <div class="">
+                <p class="text-dark text-left">Department (<span class="text-warning">{{lecturer.get_department_display}}</span>)</p><hr>
+                <p class="text-dark text-left">Option (<span class="text-warning">{{lecturer.get_option_display}}</span>)</p><hr>
+                <p class="text-dark text-left">Phone number (<span class="text-warning">{{lecturer.user.phone_number}}</span>)</p><hr>
+                <p class="text-dark text-left">Email (<span class="text-warning">{{lecturer.user.email}}</span>)</p><hr>
+                <p class="text-dark text-left">Office address (<span class="text-warning">{{lecturer.office}}</span>)</p><hr>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

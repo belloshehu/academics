@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block layout %}
+    <div class="col-xl-10 col-lg-10 col-sm-12" style="padding: 0% 0% 0% 1%;">
+        {% block content %} {% endblock %}   
+    </div>
+    <div class="col-xl-2 col-lg-2 col-sm-0" style="padding: 0% 1% 1% 0%;">
+        {% block side-bar %}
+        <div class="jumbotron bg-success text-light" style="margin: 2% 2% 2% 0%;">
+            <div>          
+                <p class="text-light fields">Special Announcement</p>
+                <hr>
+                {% if announcements %}
+                    <ul>
+                        {% for announcement in announcements %}
+                            <li>{{announcement.title}}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="text-warning">No announcements</p>
+                {% endif %}
+            </div>
+            <div>
+                <p class="text-light fields">Social Tips</p>
+                <hr>
+                {% if tips %}
+                <ul>
+                    {% for tip in tips %}
+                        <li>{{tip.title}}</li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                    <p class="text-warning">No tips</p>
+                {% endif %}
+            </div>
+            <div>
+                <p class="text-light fields">Events of the week/month</p>
+                <hr>
+                {% if events %}
+                <ul>
+                    {% for event in events %}
+                        <li>{{event.title}}</li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                    <p class="text-warning">No Events</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="jumbotron bg-success text-light" style="margin: 2% 2% 2% 0%;">
+            {% block state-items %} 
+                <h4>({{states|length}}) States in Nigeria</h4><hr>
+                {% for state in states %}
+                    <span class="btn bg-light"><a class="text-info no-decorations" href="/state/{{state.id}}">{{state}}</a></span>
+                {% endfor %}
+            {% endblock %}
+        </div>
+        {% endblock %}
+    </div>
+{% endblock layout %}

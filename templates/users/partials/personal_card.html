@@ -1,0 +1,25 @@
+{% block personal_card %}
+    <div class="card">
+        <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+            <div class="pull-left">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                   <i class="fa fa-user"></i> Personal Information
+                </button>
+            </div>
+            <div class="pull-right">
+                <a class="btn btn-success text-light" href="{% url 'users:users-update'%}"><i class="fa fa-pencil"></i> Update</a>
+            </div>
+        </h5>
+        </div>
+    
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+            <p class="text-dark text-left">Full name (<span class="text-warning">{{user.get_full_name|title}}</span>)</p><hr>
+            <p class="text-dark text-left">Username (<span class="text-warning">{{user.username}}</span>)</p><hr>
+            <p class="text-dark text-left">Phone number (<span class="text-warning">{{user.phone_number}}</span>)</p><hr>
+            <p class="text-dark text-left">Email (<span class="text-warning">{{user.email}}</span>)</p><hr>
+        </div>
+        </div>
+    </div>
+{% endblock personal_card %}

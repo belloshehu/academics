@@ -1,0 +1,141 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+    <div class="text-dark text-center" style="margin: 1%;">
+        <div class="row">
+            <div class="col-12">
+                <div class="jumbotron ">
+                    <!--accordion-->
+                    <div id="accordion">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active text-danger" aria-current="page">
+                                    <img class="rounded-circle text-left" src="{{department.logo.url}}" alt="{{department.name}}" width="100" height="100">
+                                    {{department.name|title}} Department</li> 
+                            </ol>
+                        </nav>
+                        <div class="card">
+                            <div class="card-header" id="heading-one">
+                            <h5 class="mb-0">
+                                <div class="pull-left">
+                                    <button class="btn btn-link text-success collapsed" data-toggle="collapse" data-target="#collapse-one" aria-expanded="false" aria-controls="collapseTwo">
+                                        Lecturers|<scan class="badge badge-pill badge-success text-light"> {{lecturers|length}}</scan>
+                                    </button>
+                                </div>
+                                <div class="pull-right">
+                                    <a class="btn btn-success" href="#"><i class="fa fa-plus"> New</i></a>
+                                </div>
+                            </h5>
+                            </div>
+                            <div id="collapse-one" class="collapse" aria-labelledby="heading-one" data-parent="#accordion">
+                            <div class="card-body">
+                                {% if lecturers %}
+                                    {% for lecturer in lecturers %}
+                                        <div class="jumbotron" style="margin:1% 1% 1% 1%; padding: 1%">
+                                            <a class="no-decorations mosque-central" href="{% url 'lecturer:lecturer-detail' lecturer.id %}">
+                                                <img class="rounded-circle text-left" src="{{lecturer.photo.url}}" title="{{lecturer.name}}" width="100" height="100">
+                                                <span class="text-light title">{{lecturer.user.get_full_name|title}} (<small class="text-warning"> {{lecturer.option}} / {{lecturer.office}} / {{lecturer.user.phone_number}} </small>)</span>         
+                                            </a>
+                                        </div>
+                                    {% endfor %}
+                                {% else %}
+                                    <div class=" text-danger alert-info">Lecturers not added</div>
+                                {% endif %}
+                            </div>
+                            </div>
+                        </div>
+                        <div class="card"><!--Students-->
+                            <div class="card-header" id="heading-two">
+                            <h5 class="mb-0">
+                                <div class="pull-left">
+                                    <button class="btn btn-link text-success collapsed" data-toggle="collapse" data-target="#collapse-two" aria-expanded="false" aria-controls="collapseTwo">
+                                        Students|<scan class="badge badge-pill badge-success text-light"> {{students|length}}</scan>
+                                    </button>
+                                </div>
+                                <div class="pull-right">
+                                    <a class="btn btn-success" href="#"><i class="fa fa-plus"> New</i></a>
+                                </div>
+                            </h5>
+                            </div>
+                            <div id="collapse-two" class="collapse" aria-labelledby="heading-two" data-parent="#accordion">
+                            <div class="card-body">
+                                {% if students %}
+                                    {% for student in students %}
+                                        <div class="jumbotron" style="margin:1% 1% 1% 1%; padding: 1%">
+                                            <a class="no-decorations mosque-central" href="{% url 'department:detail' department.id %}">
+                                                <img class="rounded" src="{{department.logo.url}}" title="{{department.name}}" width="20%" height="20%"> 
+                                                <span class="pull-right"  style="margin:1%;">{{student.name|title}}</span>      
+                                            </a>
+                                        </div>
+                                    {% endfor %}
+                                {% else %}
+                                    <div class=" text-danger alert-info">Students not added</div>
+                                {% endif %}
+                            </div>
+                            </div>
+                        </div><!--End of student card-->
+                        <div class="card"><!-- courses -->
+                            <div class="card-header" id="heading-three">
+                            <h5 class="mb-0">
+                                <div class="pull-left">
+                                    <button class="btn btn-link text-success collapsed" data-toggle="collapse" data-target="#collapse-three" aria-expanded="false" aria-controls="collapseTwo">
+                                        Courses|<scan class="badge badge-pill badge-success text-light title"> {{courses|length}}</scan>
+                                    </button>
+                                </div>
+                                <div class="pull-right">
+                                    <a class="btn btn-success" href="{% url 'course:course-create' %}"><i class="fa fa-plus" aria-hidden="true"> New</i></a>
+                                </div>
+                            </h5>
+                            </div>
+                            <div id="collapse-three" class="collapse" aria-labelledby="heading-three" data-parent="#accordion">
+                            <div class="card-body">
+                                {% if courses %}
+                                    {% for course in courses %}
+                                        <div class="jumbotron" style="margin:1% 1% 1% 1%; padding: 1%">
+                                            <a class="no-decorations mosque-central" href="{% url 'department:detail' department.id %}">
+                                                <span style="margin:1%;">{{course.title|title}} (<small class="text-warning">{{course.code}} / {{course.credit_unit}} /{{course.department}} / {{course.option}}</small>)</span> 
+                                            </a>
+                                        </div>
+                                    {%endfor%}
+                                {% else %}
+                                    <div class=" text-danger alert-info">Courses not added</div>
+                                {% endif %}
+                            </div>
+                            </div>
+                        </div><!--End of courses card-->
+                        <div class="card"><!-- programs -->
+                            <div class="card-header" id="heading-three">
+                            <h5 class="mb-0">
+                                <div class="pull-left">
+                                    <button class="btn btn-link text-success collapsed" data-toggle="collapse" data-target="#collapse-four" aria-expanded="false" aria-controls="collapseTwo">
+                                        Programs|<scan class="badge badge-pill badge-success text-light title"> {{programs|length}}</scan>
+                                    </button>
+                                </div>
+                                <div class="pull-right">
+                                    <a class="btn btn-success" href="#"><i class="fa fa-plus"> New</i></a>
+                                </div>
+                            </h5>
+                            </div>
+                            <div id="collapse-four" class="collapse" aria-labelledby="heading-four" data-parent="#accordion">
+                            <div class="card-body">
+                                {% if programs %}
+                                    {% for program in programs %}
+                                        <div class="jumbotron" style="margin:1% 1% 1% 1%; padding: 1%">
+                                            <a class="no-decorations mosque-central" href="{% url 'department:detail' department.id %}">
+                                                <img class="rounded" src="{{department.logo.url}}" title="{{department.name}}" width="20%" height="20%"> 
+                                                <span class="pull-right"  style="margin:1%;">{{program.name|title}}</span>      
+                                            </a>
+                                        </div>
+                                    {%endfor%}
+                                {% else %}
+                                    <div class=" text-danger alert-info">Programs not added</div>
+                                {% endif %}
+                            </div>
+                            </div>
+                        </div><!--End of program card-->
+                    </div><!--End of accordion-->
+                </div>
+            </div>
+        </div>    
+    </div>
+{% endblock content %}

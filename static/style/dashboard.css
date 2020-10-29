@@ -1,0 +1,59 @@
+@media (min-width:500px){
+    div.dash-section {
+        padding: 5px;
+        font-size: 2em;
+        border: 10px solid orange;
+        border-radius: 50%;
+       
+    }
+    .dash-symbol{
+        color: green;
+        margin: 0%;
+        font-size:1em ;
+        font-weight: bolder;
+    }
+    .dash-symbol::first-letter {
+        font-size: 2em ;
+        color: rgb(37, 33, 33);
+        display: inline;
+    }
+    span.dash-value {
+        display: inline;
+        font-size: 3em;
+        font-weight: bolder;
+        color: black;
+        text-shadow: 2px 2px white;
+        margin: 0%;
+    }
+}
+@media (max-width:499px){
+    div.dash-section {
+        padding: 2px 0px;
+        font-size: 2em;
+        border: 10px solid orange;
+        border-radius: 50%;
+       
+    }
+    .dash-symbol{
+        color: green;
+        margin: 0%;
+        font-size:0.5em ;
+        font-weight: bolder;
+    }
+    .dash-symbol::first-letter {
+        font-size: 1em ;
+        color: rgb(37, 33, 33);
+        display: inline;
+    }
+    span.dash-value {
+        display: inline;
+        font-size: 2em;
+        font-weight: bolder;
+        color: black;
+        text-shadow: 2px 2px white;
+        margin: 0%;
+    }
+}
+.dash-stats {
+    border: 2px solid white;
+}

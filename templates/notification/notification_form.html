@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+    <div class="" style="margin:1% 1% 1% 1%; padding: 1%">
+        <div class="row">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class=" breadcrumb-item text-danger h3">
+                                Notification form
+                            </li>
+                        </ol>
+                </nav>
+            </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8 col-sm-12 ">
+                        <div class="card">
+                            <div class="card-body">
+                            {% for message in messages %}
+                                <em class="title text-danger">{{message}}</em>
+                            {% endfor %}
+                            <form action="{% url 'notification:notification-create'%}" method='POST' class="">
+                                {% csrf_token %} 
+                                            
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12"> {{ form.title|as_crispy_field }} </div><hr>
+                                        <div class="col-md-6 col-sm-12"> {{ form.target_receiver|as_crispy_field }} </div><hr>
+                                        <div class="col-md-6"> {{ form.degree|as_crispy_field }} </div><hr>
+                                        <div class="col-md-12"> {{ form.message|as_crispy_field }} </div><hr>
+                                    </div>   
+                                    <div>
+                                        <br>
+                                        <button class="btn btn-info text-light" type="submit" >Save</button>   
+                                        <br>
+                                        <br>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+{% endblock content %}

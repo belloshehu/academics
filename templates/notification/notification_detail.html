@@ -1,0 +1,32 @@
+
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="jumbotron" style="margin:1% 1% 1% 1%; padding: 1%">
+        <div>
+            <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class=" breadcrumb-item text-danger h3">
+                            <i class="fa fa-bell"></i>
+                            {{notification.title}}
+                        </li>
+                        <li class="breadcrum-item">
+                            {% if notification.sender.id == user.id %}
+                                <a class="btn" href="{% url 'notification:notification-delete' notification.id %}"><i class="fa fa-trash text-primary"></i></a>
+                            {% endif %}
+                        </li>
+                    </ol>
+            </nav>
+        </div>
+        <div class="bg-light">
+            <div class="">
+                <p class="text-dark text-left">sent by : (<small class="text-warning">{{notification.sender.get_full_name}}</small>)</p>
+                <p class="text-dark text-left">Date/Time sent: (<small class="text-warning">{{notification.date_time_sent}}</small>)</p>
+                <p class="text-dark text-left">Message type : <small class="text-warning">({{notification.get_degree_display}})</small></p>
+                <div class="bg-dark text-light">
+                    <p class="text-info text-left">(Message)</p>
+                    <p class="text-light text-left">{{notification.message}}</p><br>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

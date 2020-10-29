@@ -1,0 +1,408 @@
+.fields{
+    padding:1%;
+    margin:2px;
+    border: 2px solid white;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:black;
+    border-radius:10px;
+  }
+.signup-table{
+    padding:1%;
+    margin:0px 0px 1px 0px;
+    border: 1px solid grey;
+    font-family:'Courier New', Courier, monospace;
+    color:black;
+    border-radius:10px;
+    font-weight: normal;
+  }
+.alert-success{
+    padding:1%;
+    margin:2px;
+    border: 2px solid white;
+    border-radius:10px;
+}
+.ITEM{
+
+    background-color: rgba(0,0,0,0.5);
+    font: fantasy;
+    color:white;
+
+}
+.view{
+    background-color: rgba(0,0,0,0.3);
+    border:10px solid thin;
+    width:10%;
+}
+.menu_item{
+    border-radius:10px;
+    border-color: white;
+    border-style: solid;
+}
+img>p{
+    width:40%;
+    height: 4%;
+    border-radius:5px;
+}
+.cart{
+    width: 15%;
+    height: 7%;
+    border-radius:10px;
+    border-style:dashed;
+    background-color: rgba(0,0,0,0.7);
+    color: white;
+    margin-right: 30%;
+
+}
+.removefromcart{
+    width: 15%;
+    height: 7%;
+    border-radius:10px;
+    border-style:dashed;
+    background-color: rgba(255,0,0,0.7);
+    color: white;
+    margin-bottom: 1%;
+    margin-left: 30%;
+
+
+}
+.viewparagraph{
+    margin:2%;
+    padding:1%;
+}
+.cartimage{
+    width:20%;
+    height:4%;
+    margin-left:2%;
+    margin-right: 80%;
+    
+}
+#total{
+    margin-left: 80%;
+    background-color: rgba(0,0,0,0.7);
+    color:white;
+    margin: auto;
+    padding: 5x;
+    
+}
+span{
+    margin: 2%;
+}
+.cartitems{
+    background-color: rgba(0,0,0,0.5);
+    font: fantasy;
+    color:white;
+    margin: 10px;
+    border-radius:10px;
+
+}
+p > .cartitems{
+    text-align: center;
+
+}
+.order{
+    width: 15%;
+    height: 7%;
+    border-radius:10px;
+    border-style:dashed;
+    background-color: rgba(0,0,0,0.7);
+    color: white;
+    margin-left: 80%;
+    margin-bottom:1%;
+}
+.headerimage{
+    width:7%;
+    height: 2%;
+    border-style: dotted;
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-right: 0%;
+    
+}
+.headertitle{
+    margin-left: 10px;
+    margin-right: 20%;
+    font-family:broadway;
+    font-size:150%;
+    font-weight:bolder;
+    color:white;
+}
+a:link{
+    color: white;
+    
+}
+a:visited{
+    color:white;
+
+}
+a:hover{color:blue;}
+li{
+    list-style-type: none;
+}
+.ordernumber{
+    color:white;
+}
+#statussuccess{
+    font-family:forte;
+    color: white;
+    background-color: green;
+}
+
+#statuspending{
+    font-family:forte;
+    color: red;
+}
+
+.statescontainer,.mosquecontainer{
+    padding:5px;
+    margin-top:20px;
+    margin-bottom: 20px;
+    background-color: sienna;
+    border-radius: 20px;
+}
+h1{color:white;
+   }
+
+ .mytable-td,.mytable-th{
+       border:2px solid blue;
+       font-family:Verdana, Tahoma, sans-serif;
+       color:white; 
+        background-color:black; 
+        padding:5px;
+        font-size: 1.3em; 
+        border-radius: 10px;  
+        width:12%;
+   }
+  
+table{
+    float: none;
+    margin-left:25%;
+    margin-right: 25%;
+    border-radius: 5px;
+}
+
+p{
+    color:white;
+    font-family:Impact,Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-left: 5%;
+}
+footer {margin-bottom: 0%;
+      
+      }
+.container {
+    background-color:white ;
+    margin:2% 20% 2% 20%;
+    padding: 2%;
+    text-align: center;
+    background-position: center;
+    background-repeat: repeat-y;
+}
+.mosquephoto {
+    width:50%;
+    height:30%;
+    border:2px solid rgb(24,234,243,0.8);
+    border-radius: 100% 100% 100% 100%;
+}
+.error-text {
+    color: red;
+}
+.nav-item{
+    margin: 10px;
+}
+.username{
+    color:black;
+    font-style: italic;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+header,footer {
+    background-color: black;
+    height:5%;
+    margin: 0%;
+    padding: 0%;
+    color: white;
+ }
+footer{
+    margin-bottom:0%;
+    border-bottom: 5px solid grey;
+    border-top: 5px solid grey;
+}
+div.state > a {
+    float: left;
+    margin: 1%;
+    color: red;
+}
+.central-mosque {
+    font-size: 1em;
+    color: #dbcace;
+}
+.custom-form input[type='text'], .custom-form input[type='password'], .custom-form input[type='email'] {
+    border-radius: 10px;
+    padding: 6px;
+    text-align: center;
+    width: 50%;
+}
+textarea {
+    border-radius: 2em 2em;
+}
+.fa-facebook {
+    border-radius: 50%;
+    padding: 10px;
+    background-color: rgb(50, 67, 250);
+    border: 1px white solid;
+}
+.fa-phone {
+    border-radius: 50%;
+    padding: 10px;
+    background-color:green;
+    border: 1px white solid;
+    color: white;
+}
+.fa-twitter {
+    border-radius: 50%;
+    padding: 10px;
+    background-color: skyblue;
+    color: white;
+    border: 1px white solid;
+}
+
+.fa-google-plus {
+    border-radius: 50%;
+    padding: 10px;
+    background-color: rgb(250, 70, 60);
+    color: white;
+    border: 1px white solid;
+}
+@media(min-width: 499px){
+    
+    .logo img {
+        text-align: left;
+        float: left;
+        margin-bottom: 1%;
+        width: 20%;
+        height: 20%;
+    }
+    h1.site-name {
+        font-size: 60px;
+    }
+    p.site-intro {
+        font-size: 25px;
+        font-weight: bolder;
+        display: inline-block;
+    }
+    img#wallpaper {
+        height: 50%;
+    }
+    span.profile {
+        font-family: forte;
+    }
+}
+@media(max-width: 500px){
+    * {
+        font-size: medium;
+    }
+    div.logo img {
+        text-align:center;
+        margin-bottom: 1%;
+    }
+    h1.site-name {
+        font-size: 30px;
+    }
+
+    p.site-intro {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    img#wallpaper {
+        height: 50%;
+        width: 90%;
+    }
+    div.state h2, h3 {
+        font-size: large;
+    }
+    span.profile {
+        font-family: forte;
+        font-size: medium;
+    }
+    .input-icon input {
+        width: 80%;
+    }
+    div.col-sm-0 {
+        display: none;
+    }
+    h1, h2, h3 {
+        font-size: small;
+    }
+    div.footer div.col-lg-4 {
+        margin: 20px;
+    }
+}
+.small-font {
+    font-size: small;
+}
+
+div.jumbotron a span {
+    font-weight: bolder;
+    font-size: 20px;
+    text-shadow: 5px 1px 1px 2px green;
+}
+
+input#search, .input-shadow input {
+    box-shadow: 5px 3px 5px 2px rgb(200, 200, 200);
+}
+div#site-info {
+    background-image: url("/static/images/logo/mosques.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-origin: border-box;
+    background-attachment: fixed;
+}
+div#site-info div {
+    background-color:  rgba(5, 63, 5, 0.9);
+    margin:0;
+}
+.site-intro {
+    color: white;
+    padding: 5px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+div.jumbotron {
+    background-color: rgb(5, 63, 5);
+}
+.input-icon i {
+    position: absolute;
+    padding: 10px;
+}
+
+.input-icon, input {
+    padding: 2px;
+    margin: 2% auto;
+    text-align: center;
+    font-size: 1.5em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.input-icon input {
+    outline: none;
+}
+.input-icon input[type=submit] {
+    width: 50%;
+    font-weight: bold;
+}
+.icon {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bolder;
+}
+div, p {
+    font-size: 1em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+}
+body{
+    margin: 0px 10px;
+}
+.length-size {
+    font-size: 50px;
+    font-weight: bold;
+    display: inline;
+}

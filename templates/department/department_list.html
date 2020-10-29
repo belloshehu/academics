@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="text-dark text-center" style="margin: 1%;">
+        <div class="row">
+            <div class="col-12">
+                <div class="jumbotron ">
+                    <!--accordion-->
+                    <div id="accordion">
+                        <nav aria-label="breadcrumb">
+                            <span><img class="circle-rounded" src="{{academic.photo.url}}"></span>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active" aria-current="page"><span class="text-danger"></span></li>  
+                            </ol>
+                        </nav>
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <h2>Departments <scan class="badge badge-success text-light">{{departments|length}}</scan></h2>
+                                </button>
+                            </h5>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="card-body">
+                                {% for department in departments %}
+                                    <div class="jumbotron" style="margin:1% 1% 1% 1%; padding: 1%">
+                                        <a class="no-decorations mosque-central" href="{% url 'department:detail' department.id %}">
+                                            <div class="text-light">
+                                                <p style="margin:1%;">{{department.get_name_display|title}} (<span>{{department.name}}</span>)</p>      
+                                            </div>
+                                        </a>
+                                    </div>
+                                {%endfor%}
+                            </div>
+                            </div>
+                        </div>
+                    </div><!--End of accordion-->
+                </div>
+            </div>
+        </div>    
+    </div>
+{% endblock content %}

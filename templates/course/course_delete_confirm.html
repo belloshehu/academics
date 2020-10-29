@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="text-dark state" style="margin:1% 1% 1% 1%; padding: 1%">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">
+                    <span class="text-danger"><a href="{% url 'course:course-list' %}"></a></span>
+                </li>  
+            </ol>
+        </nav>
+    </div>
+
+    <div class="jumbotron" style="margin:1% 1% 1% 1%; padding: 1%">
+        <div class="alert-success ">Course deleted successfully.</div>
+    </div>
+{% endblock content %}

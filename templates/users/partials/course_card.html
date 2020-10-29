@@ -1,0 +1,35 @@
+{% block course_card %}
+    <div class="card">
+        <div class="card-header" id="heading-course">
+        <h5 class="mb-0">
+            <div class="pull-left">
+                <button class="btn btn-link no-decorations collapsed" data-toggle="collapse" data-target="#collapse-course" aria-expanded="false" aria-controls="collapseTwo">
+                   <i class="fa fa-book"></i> Courses <sup><scan class="badge badge-success text-light">{{courses|length}}</scan></sup>
+                </button>
+            </div>
+            <div class="pull-right">
+                <a class="btn btn-success" href="{% url 'course:course-create' %}"><i class="fa fa-plus"></i> New</a>
+            </div>
+        </h5>
+        </div>
+        <div id="collapse-course" class="collapse" aria-labelledby="heading-course" data-parent="#accordion">
+        <div class="card-body">
+            {% if courses %}
+                {% for course in courses %}
+                    <div class="jumbotron" style="margin:1% 1% 1% 1%; padding: 5px">
+                        <a class="no-decorations mosque-central" href="{{course.get_absolute_url}}">
+                            <div class="text-light">
+                                <p style="margin:1%;" class="text-left">
+                                    <i class="fa fa-book text-warning"></i> {{course.title|title}} (<span>{{course.code}} / {{course.credit_unit}} /{{course.department}} / {{course.option}})</span>
+                                </p>      
+                            </div>
+                        </a>
+                    </div>
+                {%endfor%}
+            {% else %}
+                <div class=" text-danger alert-info">Courses not added</div>
+            {% endif %}
+        </div>
+        </div>
+    </div>
+{% endblock course_card %}

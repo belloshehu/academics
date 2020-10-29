@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="text-dark text-center" style="margin: 1%;">
+        <div class="row">
+            <div class="col-12">
+                <div class="jumbotron ">
+                    <!--accordion-->
+                    <div id="accordion">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active" aria-current="page"><span class="text-danger">Courses</span></li>  
+                            </ol>
+                        </nav>
+                        <div class="card">
+                            <div class="card-header" id="heading-two">
+                            <h5 class="mb-0">
+                                <div class="pull-left">
+                                    <button class="btn btn-link no-decorations collapsed" data-toggle="collapse" data-target="#collapse-one" aria-expanded="false" aria-controls="collapseTwo">
+                                        <h2>Courses <scan class="badge badge-success text-light">{{courses|length}}</scan></h2>
+                                    </button>
+                                </div>
+                                <div class="pull-right">
+                                    <a class="btn btn-success" href="{% url 'course:course-create' %}"><i class="fa fa-plus"></i> New</a>
+                                </div>
+                            </h5>
+                            </div>
+                            <div id="collapse-one" class="collapse" aria-labelledby="heading-two" data-parent="#accordion">
+                            <div class="card-body">
+                                {% for course in courses %}
+                                    <div class="jumbotron" style="margin:1% 1% 1% 1%; padding: 5px">
+                                        <a class="no-decorations mosque-central" href="{{course.get_absolute_url}}">
+                                            <div class="text-light">
+                                                <p style="margin:1%;">{{course.title|title}} (<span>{{course.code}} / {{course.credit_unit}} /{{course.department}} / {{course.option}})</span></p>      
+                                            </div>
+                                        </a>
+                                    </div>
+                                {%endfor%}
+                            </div>
+                            </div>
+                        </div>
+                    </div><!--End of accordion-->
+                </div>
+            </div>
+        </div>    
+    </div>
+{% endblock content %}

@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+<link type="text/css" rel="stylesheet" href="{% static 'style/style1.css'%}">
+{% block content %}
+<div class="text-dark text-center" style="margin: 1%;">
+    <div class="row">
+        <div class=" col-md-12 "><h3 class="text-dark">Fill in the registration form below <hr></h3><br></div>
+    </div>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-md-6 col-sm-12 ">
+            {% for message in messages %}
+                <em class="title text-danger">{{message}}</em>
+            {% endfor %}
+            <form action="{% url 'users:register' %}" method='POST' class="input-shadow">
+                {% csrf_token %}                    
+                    <div class="row">
+                        <div class="col-md-6"> {{ form.username|as_crispy_field }} </div>  
+                        <div class="col-md-6 col-sm-12"> {{ form.first_name|as_crispy_field }} </div>  
+                        <div class="col-md-4 col-sm-12"> {{ form.last_name|as_crispy_field }} </div> 
+                        <div class="col-md-8"> {{ form.email|as_crispy_field }} </div>   
+                    </div> 
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6"> {{ form.password1|as_crispy_field }} </div> 
+                        <div class="col-sm-12 col-md-6"> {{ form.password2|as_crispy_field }} </div>   
+                    </div>   
+                    <div>
+                        <br>
+                        <button class="btn btn-lg btn-warning text-light" type="submit" >Submit</button>   
+                        <br>
+                        <br>
+                    </div>
+                    <hr>
+                    <div class="input-icon text-info">
+                        <a class="text-secondary" href="users:login">Sign here.</a>
+                    </div>
+                    <a class="btn" href="{% url 'users:users-update' %}"></a> 
+            </form>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% block academic_card %}
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+        <h5 class="mb-0">
+            <div class="pull-left">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <i class="fa fa-graduation-cap"></i> Academic Information
+                </button>
+            </div>
+            <div class="pull-right">
+                <a class="btn btn-success text-light" href="{% url 'users:academic-update' %}"><i class="fa fa-pencil"></i> Update</a>
+            </div>
+        </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+        <div class="card-body">
+            {% if academic %}
+                <p class="text-dark text-left">Department (<span class="text-warning">{{academic.get_department_display}}</span>)</p><hr>
+                <p class="text-dark text-left">Option (<span class="text-warning">{{academic.get_option_display}}</span>)</p><hr>
+                {% if user.is_staff %}
+                    <p class="text-dark text-left">Office address (<span class="text-warning">{{academic.office}}</span>)</p><hr>
+                {% else %}
+                    <p class="text-dark text-left">Program (<span class="text-warning">{{academic.get_program_display}}</span>)</p><hr>
+                    <p class="text-dark text-left">Level (<span class="text-warning">{{academic.get_level_display}}</span>)</p><hr>
+                {% endif %}
+            {% else %}
+                <div class=" text-danger alert-info">You have not created profile yet!</div>
+            {% endif %}
+        </div>
+        </div>
+    </div><!--End of academic-->
+{% endblock academic_card %}

@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+    <div class="card" style="margin:1% 1% 1% 1%; padding: 1%">
+        <div class="row">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class=" breadcrumb-item text-danger h3">
+                                Personal profile form
+                            </li>
+                        </ol>
+                </nav>
+            </div>
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10 col-sm-12 ">
+                        {% for message in messages %}
+                            <em class="title text-danger">{{message}}</em>
+                        {% endfor %}
+                        <form action="{% url 'users:users-update' %}" method='POST' class="input-shadow">
+                            {% csrf_token %}                    
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12"> {{ form.first_name|as_crispy_field }} </div> 
+                                <div class="col-md-6"> {{ form.middle_name|as_crispy_field }} </div>   
+                                <div class="col-md-6 col-sm-12"> {{ form.last_name|as_crispy_field }} </div> 
+                                <div class="col-md-6 col-sm-12"> {{ form.phone_number|as_crispy_field }} </div>
+                            </div>    
+                            <div>
+                                <br>
+                                <button class="btn btn-primary text-light" type="submit" >Update</button>   
+                                <br>
+                                <br>
+                            </div>        
+                        </form>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+{% endblock content %}

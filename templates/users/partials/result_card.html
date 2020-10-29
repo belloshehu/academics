@@ -1,0 +1,35 @@
+{% block result_card %}
+    <div class="card">
+        <div class="card-header" id="heading-result">
+        <h5 class="mb-0">
+            <div class="pull-left">
+                <button class="btn btn-link no-decorations collapsed" data-toggle="collapse" data-target="#collapse-result" aria-expanded="false" aria-controls="collapseTwo">
+                   <i class="fa fa-leaf"></i> Results <sup><scan class="badge badge-success text-light">{{results|length}}</scan></sup>
+                </button>
+            </div>
+            <div class="pull-right">
+                <a class="btn btn-success" href="#"><i class="fa fa-plus"></i> New</a>
+            </div>
+        </h5>
+        </div>
+        <div id="collapse-result" class="collapse" aria-labelledby="heading-result" data-parent="#accordion">
+        <div class="card-body">
+            {% if results %}
+                {% for result in results %}
+                    <div class="jumbotron" style="margin:1% 1% 1% 1%; padding: 5px">
+                        <a class="no-decorations mosque-central" href="#">
+                            <div class="text-light">
+                                <p style="margin:1%;">{{result.course.title|title}} (<span>{{result.course.code}} / {{result.course.credit_unit}} /{{result.course.department}} / {{result.course.option}})</span>
+                                    <span class="text-danger">{{result.grade|title}}</span>
+                                </p>      
+                            </div>
+                        </a>
+                    </div>
+                {%endfor%}
+            {% else %}
+                <div class=" text-danger alert-info">Results not added</div>
+            {% endif %}
+        </div>
+        </div>
+    </div>
+{% endblock result_card %}
