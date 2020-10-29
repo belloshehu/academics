@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+    <div class="card" style="margin:1% 1% 1% 1%; padding: 1%">
+        <div class="row">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class=" breadcrumb-item text-danger h3">
+                            Signup Success
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="card-title text-info h2">Successfully Signup</div><hr>
+                            <div class="card-photo">
+                                <img src="{% static 'images/avartar1.png' %}" width="100" height="100">
+                            </div>
+                            <div class="card-body">
+                                <div class="card-link">
+                                    <p>
+                                        <i class="fa fa-happy"></i> 
+                                    </p>
+                                    <p class="h3 text-warning text-center"> Your signup was successfull.</p>
+                                    <br>
+                                    <br>
+                                    <hr>
+                                    <a class="btn btn-info text-light" href="{% url 'users:login'%}">login</a>
+                                    <br>
+                                    <br>
+                                </div>  
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
