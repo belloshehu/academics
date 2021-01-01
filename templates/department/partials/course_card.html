@@ -1,0 +1,52 @@
+{% block course_list %}
+    <div class="card"><!-- courses -->
+        <div class="card-header" id="heading-three">
+        <h5 class="mb-0">
+            <div class="pull-left">
+                <button class="btn btn-link text-info collapsed" data-toggle="collapse" data-target="#collapse-three"       aria-expanded="false" aria-controls="collapseTwo">
+                    Courses
+                    <scan class="badge badge-pill badge-success text-light">
+                         {{courses|length}}
+                    </scan>|
+                    <small >
+                        Assigned <i class="badge badge-warning"> {{assigned_courses|length}}</i>
+                    </small>
+                </button>
+            </div>
+            {% if user.is_hod %}
+                <div class="pull-right">
+                    <a class="btn btn-success" href="{% url 'course:course-create' %}">
+                        <i class="fa fa-plus" aria-hidden="true"> New</i>
+                    </a>
+                </div>
+            {% endif %}
+        </h5>
+        </div>
+        <div id="collapse-three" class="collapse" aria-labelledby="heading-three" data-parent="#accordion">
+            <div class="card-body">
+                {% if courses %}
+                    {% for course in courses %}
+                        <div class="jumbotron" style="margin:1% 1% 1% 1%; padding: 1%">
+                            <a class="no-decorations mosque-central" href="{{course.get_absolute_url}}">
+                                <span style="margin:1%;">
+                                    {{course.title|title}} (
+                                    <small class="text-warning">
+                                        {{course.code}} / {{course.credit_unit}} /
+                                        {{course.department.abbreviated_name|upper}} /
+                                        {{course.option.abbreviated_name|upper}}
+                                    </small>)
+                                        {% if user.is_hod %}
+                                           {% include 'department/partials/course_assign_item.html' %}
+                                        {% endif %}
+
+                                </span>
+                            </a>
+                        </div>
+                    {%endfor%}
+                {% else %}
+                    <div class=" text-danger alert-info">Courses not added</div>
+                {% endif %}
+            </div>
+        </div>
+    </div><!--End of courses card-->
+{% endblock %}

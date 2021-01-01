@@ -21,11 +21,26 @@ urlpatterns = [
     path(
         'delete/<int:pk>/',
         views.CourseDeleteView.as_view(),
-        name='course-delete'  
+        name='course-delete'
     ),
     path(
         'create/',
         views.CourseCreateView.as_view(),
         name='course-create'
+    ),
+    path(
+        'assign/<int:pk>/',
+        views.AssignCourseView.as_view(),
+        name='course-assign'
+    ),
+    path(
+        'assign_delete/<int:pk>/',
+        views.CourseAssignmentDeleteView.as_view(),
+        name='course-assign-delete'
+    ),
+    path(
+        'assign_update/<int:pk>/',
+        views.CourseAssignmentUpdateView.as_view(),
+        name='course-assign-update'
     )
 ]

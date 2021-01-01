@@ -3,7 +3,18 @@ from .model_extension import generate_years_list
 
 class ProgramType(models.Model):
     ''' Model to represent type of programs. '''
+    SEMESTER_LENGHT = (
+        (1,1),
+        (2,2),
+        (3,3),
+        (4,4),
+        (5,5),
+        (6,6)
+    )
     name = models.CharField(max_length=30, null=True)
+    number_of_semester = models.IntegerField(choices=SEMESTER_LENGHT, default=4)
+    duration = models.IntegerField(default=0, help_text='in months ')
+    cost = models.DecimalField(default=0, max_digits=10, decimal_places=2)
 
     def get_absolute_url(self):
         return reverse(
@@ -17,14 +28,12 @@ class ProgramType(models.Model):
 class Program(models.Model):
     ''' Represent programs in Schools. '''
     name = models.CharField(max_length=50, null=True)
-    duration = models.IntegerField(default=0)
-    cost = models.DecimalField(default=0, max_digits=10, decimal_places=2)
     program_type = models.ForeignKey(
         ProgramType,
         on_delete=models.CASCADE,
     )
     def __str__(self):
-        return f'{self.name}, {self.duration} months'
+        return f'{self.name}, {self.program_type.name} '
 
 
 class Session(models.Model):

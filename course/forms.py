@@ -1,16 +1,16 @@
 from django import forms
-from .models import Course
+from .models import Course, LecturerCourseAssignment
 
 
+YES_OR_NO = (
+    (True, 'Yes'),
+    (False, 'No')
+)
 class CourseForm(forms.ModelForm):
     title = forms.CharField(
         widget=forms.TextInput(
             attrs={'placeholder':'Course title e.g. Advance Algebra'}
             )
-    )
-    option = forms.CharField(
-        widget=forms.Select(choices=Course.OPTIONS), 
-        initial='0',
     )
     code = forms.CharField(
         widget=forms.TextInput(
@@ -26,11 +26,24 @@ class CourseForm(forms.ModelForm):
         if credit_unit > 0:
             return credit_unit
         else:
-            return forms.ValidationError('Credit unit must be greater than 0') 
-    
-    def clean_option(self):
-        option = self.cleaned_data.get('option')
-        if option != '0':
-            return option
-        else:
-            return forms.ValidationError('Select a valid option')
+            return forms.ValidationError('Credit unit must be greater than 0')
+
+class LecturerCourseAssignmentForm(forms.ModelForm):
+    ''' Form for assigning course to lecturers. '''
+    is_joined = forms.BooleanField(
+        label='to be tought by many?',
+        widget=forms.Select(choices=YES_OR_NO,),
+        initial=False,
+        required=False
+
+    )
+    class Meta:
+        model = LecturerCourseAssignment
+        fields = (
+            'course',
+            'lecturer',
+            'is_joined',
+        )
+
+    def set_course(self, course):
+        self.Meta.fields.course = course

@@ -1,11 +1,25 @@
 {% extends 'layout.html' %}
 {% block content %}
+    <div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class=" breadcrumb-item">
+                    <a href="{% url 'users:home' %}" class="text-secondary">Home</a>
+                </li>
+                <li class=" breadcrumb-item text-success" aria-current="page">
+                    <a href="{{course.get_absolute_url}}" class="text-secondary">Course</a>
+                </li>
+            </ol>
+        </nav>
+    </div>
     <div class="jumbotron" style="margin:1% 1% 1% 1%; padding: 1%">
         <div>
             <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <div class="">
-                            <li class="breadcrumb-item active h4 text-danger" aria-current="page">{{course.title|title}}</li>
+                            <li class="breadcrumb-item active h4 text-danger" aria-current="page">
+                                {{course.title|title}}
+                            </li>
                         </div>
                         <div class="text-right">
                             <a class="btn text-right" href="{% url 'course:course-update' course.id %}">
@@ -19,10 +33,10 @@
             <div class="">
                 <p class="text-dark text-left">Course code (<span class="text-warning">{{course.code}}</span>)</p><hr>
                 <p class="text-dark text-left">Credit unit (<span class="text-warning">{{course.credit_unit}}</span>)</p><hr>
-                <p class="text-dark text-left">Department (<span class="text-warning">{{course.get_department_display}}</span>)</p><hr>
-                <p class="text-dark text-left">Option (<span class="text-warning">{{course.get_option_display}}</span>)</p><hr>
-                <p class="text-dark text-left">Level (<span class="text-warning">{{course.get_level_display}}</span>)</p><hr>
-                <p class="text-dark text-left">Semester (<span class="text-warning">{{course.get_semester_display}}</span>)</p><hr>
+                <p class="text-dark text-left">Department (<span class="text-warning">{{course.department.name}}</span>)</p><hr>
+                <p class="text-dark text-left">Option (<span class="text-warning">{{course.option.name}}</span>)</p><hr>
+                <p class="text-dark text-left">Level (<span class="text-warning">{{course.level.name}}</span>)</p><hr>
+                <p class="text-dark text-left">Semester (<span class="text-warning">{{course.semester.name}}</span>)</p><hr>
             </div>
         </div>
     </div>

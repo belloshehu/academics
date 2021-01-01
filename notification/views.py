@@ -1,14 +1,14 @@
 from django.shortcuts import (
-    render, 
-    reverse, 
+    render,
+    reverse,
     get_list_or_404
 )
 
 from django.views.generic import DetailView, ListView
 
 from django.views.generic.edit import (
-    UpdateView, 
-    DeleteView, 
+    UpdateView,
+    DeleteView,
     CreateView
 )
 from .models import Notification
@@ -23,7 +23,7 @@ class NotificationListView(ListView):
 class NotificationDetailView(DetailView):
     model = Notification
     template_name = 'notification/notification_detail.html'
-    
+
 
 class NotificationUpdateView(UpdateView):
     model  = Notification

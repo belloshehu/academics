@@ -1,0 +1,34 @@
+{% block program_list %}
+    <div class="card"><!-- programs -->
+        <div class="card-header" id="heading-three">
+        <h5 class="mb-0">
+            <div class="pull-left">
+                <button class="btn btn-link text-info collapsed" data-toggle="collapse" data-target="#collapse-four" aria-expanded="false" aria-controls="collapseTwo">
+                    Programs<scan class="badge badge-pill badge-success text-light title"> {{programs|length}}</scan>
+                </button>
+            </div>
+            {% if user.is_hod %}
+                <div class="pull-right">
+                    <a class="btn btn-success" href="#"><i class="fa fa-plus"> New</i></a>
+                </div>
+            {% endif %}
+        </h5>
+        </div>
+        <div id="collapse-four" class="collapse" aria-labelledby="heading-four" data-parent="#accordion">
+            <div class="card-body">
+                {% if programs %}
+                    {% for program in programs %}
+                        <div class="jumbotron" style="margin:1% 1% 1% 1%; padding: 1%">
+                            <a class="no-decorations mosque-central" href="{% url 'department:detail' department.id %}">
+                                <img class="rounded" src="{{department.logo.url}}" title="{{department.name}}" width="20%" height="20%">
+                                <span class="pull-right"  style="margin:1%;">{{program.name|title}}</span>
+                            </a>
+                        </div>
+                    {%endfor%}
+                {% else %}
+                    <div class=" text-danger alert-info">Programs not added</div>
+                {% endif %}
+            </div>
+        </div>
+    </div><!--End of program card-->
+{% endblock %}

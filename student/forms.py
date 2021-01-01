@@ -3,18 +3,14 @@ from .models import Student
 
 class StudentForm(forms.ModelForm):
     ''' Form for creating student profile information. '''
+    STUDENT_POSITION = (
+        (True, 'Yes'),
+        (False, 'No'),
+        (None, '---Select Yes or No---')
+    )
     home_address = forms.CharField(
         widget=forms.TextInput(attrs={'placeholder':'home address'})
         )
-    program = forms.CharField(
-        widget=forms.TextInput()
-    )
-    department = forms.CharField(
-        widget=forms.TextInput()
-    )
-    option = forms.CharField(
-        widget=forms.TextInput()
-    )
     matriculation_no = forms.CharField(
         widget=forms.TextInput()
     )
@@ -24,6 +20,11 @@ class StudentForm(forms.ModelForm):
     year_of_graduation = forms.CharField(
         widget=forms.TextInput(attrs={'type':'date'})
     )
+    is_course_ref = forms.BooleanField(
+        label='Are you course representative?',
+        widget=forms.Select(choices=STUDENT_POSITION),
+        initial=None
+    )
     class Meta:
         model = Student
-        exclude = ('user', 'is_done')
+        exclude = ('user','is_done',)

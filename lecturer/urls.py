@@ -6,7 +6,7 @@ urlpatterns = [
     path(
         'create/',
         views.LecturerCreateView.as_view(),
-        name='create-profile'
+        name='lecturer-create'
     ),
     path(
         'list/',

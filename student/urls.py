@@ -3,13 +3,18 @@ from . import views
 app_name = 'student'
 urlpatterns = [
     path(
-        'home/', 
+        'home/',
         views.HomeView.as_view(),
         name='home'
     ),
     path(
-        'create_profile/',
+        'create/',
         views.StudentCreateView.as_view(),
-        name='student-profile'
+        name='student-create'
+    ),
+    path(
+        'update/<int:pk>/',
+        views.StudentUpdateView.as_view(),
+        name='student-update'
     )
 ]

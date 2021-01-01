@@ -8,20 +8,30 @@
                 </button>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success text-light" href="{% url 'users:academic-update' %}"><i class="fa fa-pencil"></i> Update</a>
+              {% include 'users/partials/academic_create_update.html' %}
             </div>
         </h5>
         </div>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
         <div class="card-body">
             {% if academic %}
-                <p class="text-dark text-left">Department (<span class="text-warning">{{academic.get_department_display}}</span>)</p><hr>
-                <p class="text-dark text-left">Option (<span class="text-warning">{{academic.get_option_display}}</span>)</p><hr>
-                {% if user.is_staff %}
-                    <p class="text-dark text-left">Office address (<span class="text-warning">{{academic.office}}</span>)</p><hr>
+                <p class="text-dark text-left">
+                    Department (<span class="text-warning">{{academic.department.name}}</span>)
+                </p><hr>
+                <p class="text-dark text-left">
+                    Option (<span class="text-warning">{{academic.option.name}}</span>)
+                </p><hr>
+                {% if user.is_lecturer %}
+                    <p class="text-dark text-left">
+                        Office address (<span class="text-warning">{{academic.office}}</span>)
+                    </p><hr>
                 {% else %}
-                    <p class="text-dark text-left">Program (<span class="text-warning">{{academic.get_program_display}}</span>)</p><hr>
-                    <p class="text-dark text-left">Level (<span class="text-warning">{{academic.get_level_display}}</span>)</p><hr>
+                    <p class="text-dark text-left">
+                        Program (<span class="text-warning">{{academic.program.title|title}}</span>)
+                    </p><hr>
+                    <p class="text-dark text-left">
+                        Level (<span class="text-warning">{{academic.level.title}}</span>)
+                    </p><hr>
                 {% endif %}
             {% else %}
                 <div class=" text-danger alert-info">You have not created profile yet!</div>

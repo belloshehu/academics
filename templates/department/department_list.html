@@ -9,7 +9,7 @@
                         <nav aria-label="breadcrumb">
                             <span><img class="circle-rounded" src="{{academic.photo.url}}"></span>
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item active" aria-current="page"><span class="text-danger"></span></li>  
+                                <li class="breadcrumb-item active" aria-current="page"><span class="text-danger"></span></li>
                             </ol>
                         </nav>
                         <div class="card">
@@ -26,7 +26,7 @@
                                     <div class="jumbotron" style="margin:1% 1% 1% 1%; padding: 1%">
                                         <a class="no-decorations mosque-central" href="{% url 'department:detail' department.id %}">
                                             <div class="text-light">
-                                                <p style="margin:1%;">{{department.get_name_display|title}} (<span>{{department.name}}</span>)</p>      
+                                                <p style="margin:1%;">{{department.name|title}} (<span>{{department.abbreviated_name|upper}}</span>)</p>
                                             </div>
                                         </a>
                                     </div>
@@ -37,6 +37,6 @@
                     </div><!--End of accordion-->
                 </div>
             </div>
-        </div>    
+        </div>
     </div>
 {% endblock content %}

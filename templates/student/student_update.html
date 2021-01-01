@@ -1,40 +1,59 @@
 {% extends 'layout.html' %}
 {% load crispy_forms_tags %}
 {% load static %}
-<link type="text/css" rel="stylesheet" href="{% static 'style/style1.css'%}">
 {% block content %}
-<div class="text-dark text-center" style="margin: 1%;">
-    <div class="row">
-        <div class=" col-md-12 "><h1 class="text-warning">Student Profile Update form</h1><br></div>
-    </div>
-    <div class="jumbotron row">
-        <div class="col-3"></div>
-        <div class="col-md-6 col-sm-12 ">
-            {% for message in messages %}
-                <em class="title text-danger">{{message}}</em>
-            {% endfor %}
-            <form action="{% url 'lecturer:create-profile' %}" method='POST' class="">
-                {% csrf_token %}      
-                    <div class="row">
-                        <div class="col-12"><h3 class="text-primary">Academic Profile<hr></h3></div>
-                        <div class="col-md-12"> {{ form.department|as_crispy_field }} </div>
-                        <div class="col-md-12"> {{ form.option|as_crispy_field }} </div> 
-                        <div class="col-md-12"> {{ form.program|as_crispy_field }} </div> 
-                        <div class="col-md-12"> {{ form.matricuation_no|as_crispy_field }} </div>
-                        <div class="col-md-12"> {{ form.level|as_crispy_field }} </div>
-                        <div class="col-md-12"> {{ form.year_of_admission|as_crispy_field }} </div>
-                        <div class="col-md-12"> {{ form.year_of_graduation|as_crispy_field }} </div>
-                        <div class="col-md-12"> {{ form.home_address|as_crispy_field }} </div>     
-                    </div>   
-                    <div>
-                        <br>
-                        <button class="btn btn-primary text-light" type="submit" >Submit</button>   
-                        <br>
-                        <br>
+    <div class="" style="margin:1% 1% 1% 1%; padding: 1%">
+        <div class="row">
+            <!--div class="col-12">
+                <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class=" breadcrumb-item text-danger h3">
+                                Student Profile
+                            </li>
+                        </ol>
+                </nav>
+            </div-->
+            <div class="col-12">
+                <div class="row">
+                    <div class='col-md-0 col-sm-12'></div>
+                    <div class="col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="card-title h5">Student Profile update form</div><hr>
+                            <div class="card-photo">
+                                <!--img src="{% static 'images/avartar1.png' %}" width="100" height="100"-->
+                            </div>
+                            <div class="card-body">
+                                <form action="{% url 'student:student-update' %}" method='POST' class="input-shadow">
+                                {% csrf_token %}
+
+                                    <div class="row">
+                                        <div class="col-md-6"> {{ form.home_address|as_crispy_field }} </div>
+                                        <div class="col-md-6"> {{ form.photo|as_crispy_field }} </div>
+                                        <div class="col-md-6"> {{ form.matriculation_no|as_crispy_field }} </div>
+                                        <div class="col-md-6"> {{ form.department|as_crispy_field }} </div>
+                                        <div class="col-md-6 col-sm-12"> {{ form.program|as_crispy_field }} </div>
+                                        <div class="col-md-6 col-sm-12"> {{ form.option|as_crispy_field }} </div>
+                                        <div class="col-md-6"> {{ form.level|as_crispy_field }} </div>
+                                        <div class="col-md-6"> {{ form.year_of_admission|as_crispy_field }} </div>
+                                        <div class="col-md-6"> {{ form.year_of_graduation|as_crispy_field }} </div>
+                                        <div class="col-md-6"> {{ form.is_course_ref|as_crispy_field }} </div>
+                                    </div>
+                                    <div>
+                                        <br>
+                                        <button class="btn btn-info text-light" type="submit" >Submit</button>
+                                        <a class="btn btn-warning text-light" href="{% url 'users:user-profile' %}" >Cancel</a>
+
+                                        <br>
+                                        <br>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class='col-md-0  col-sm-12'></div>
+                        </div>
                     </div>
-            </form>
+                </div>
+
+            </div>
         </div>
-        <div class="col-3"></div>
     </div>
-</div>
-{% endblock %}
+{% endblock content %}

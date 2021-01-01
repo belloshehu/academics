@@ -12,13 +12,28 @@
             </div>
         </h5>
         </div>
-    
+
         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
         <div class="card-body">
             <p class="text-dark text-left">Full name (<span class="text-warning">{{user.get_full_name|title}}</span>)</p><hr>
             <p class="text-dark text-left">Username (<span class="text-warning">{{user.username}}</span>)</p><hr>
             <p class="text-dark text-left">Phone number (<span class="text-warning">{{user.phone_number}}</span>)</p><hr>
             <p class="text-dark text-left">Email (<span class="text-warning">{{user.email}}</span>)</p><hr>
+            <p class="text-dark text-center">
+               | You are a
+                    <span class="h5 text-light bg-dark">
+                    {% if user.is_student %}
+                        Student
+                    {% elif user.is_lecturer %}
+                        Lecturer
+                    {% elif user.is_hod %}
+                        HOD
+                    {% else %}
+                        Staff
+                    {% endif %}
+                    </span>
+               |
+            </p>
         </div>
         </div>
     </div>

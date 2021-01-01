@@ -1,8 +1,23 @@
 
 {% extends 'layout.html' %}
 {% block content %}
+    <div>
+        <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class=" breadcrumb-item">
+                        <a href="{% url 'users:home' %}" class="text-secondary">Home</a>
+                    </li>
+                    <li class=" breadcrumb-item text-success">
+                        <a href="{{lecturer.department.get_absolute_url}}" class="text-secondary">Department</a>
+                    </li>
+                    <li class=" breadcrumb-item text-success" aria-current="page">
+                        <a href="{{lecturer.get_absolute_url}}" class="text-secondary">Lecturer</a>
+                    </li>
+                </ol>
+        </nav>
+    </div>
     <div class="jumbotron" style="margin:1% 1% 1% 1%; padding: 1%">
-        <div>
+            <div>
             <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="">
@@ -11,21 +26,30 @@
                         <li class=" breadcrumb-item text-danger h3">
                             {{lecturer.user.get_full_name|title}}
                         </li>
-                        <li class="h3 text-right">
+                        <!--li class="h3 text-right">
                             <a class="btn text-right" href="{% url 'lecturer:lecturer-update' lecturer.id %}">
                                 <i class="fa fa-pencil text-dark"></i>
                             </a>
-                        </li>
+                        </li-->
                     </ol>
             </nav>
         </div>
         <div class="bg-light">
             <div class="">
-                <p class="text-dark text-left">Department (<span class="text-warning">{{lecturer.get_department_display}}</span>)</p><hr>
-                <p class="text-dark text-left">Option (<span class="text-warning">{{lecturer.get_option_display}}</span>)</p><hr>
-                <p class="text-dark text-left">Phone number (<span class="text-warning">{{lecturer.user.phone_number}}</span>)</p><hr>
-                <p class="text-dark text-left">Email (<span class="text-warning">{{lecturer.user.email}}</span>)</p><hr>
-                <p class="text-dark text-left">Office address (<span class="text-warning">{{lecturer.office}}</span>)</p><hr>
+                <p class="text-dark text-left">Department (<span class="text-info">
+                    {{lecturer.department.name}}</span>)</p><hr>
+                <p class="text-dark text-left">
+                    Option (<span class="text-info">{{lecturer.option.name}}</span>)
+                </p><hr>
+                <p class="text-dark text-left">
+                    Phone number (<span class="text-info">{{lecturer.user.phone_number}}</span>)
+                </p><hr>
+                <p class="text-dark text-left">
+                    Email (<span class="text-info">{{lecturer.user.email}}</span>)
+                </p><hr>
+                <p class="text-dark text-left">
+                    Office address (<span class="text-info">{{lecturer.office}}</span>)
+                </p><hr>
             </div>
         </div>
     </div>

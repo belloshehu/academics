@@ -1,6 +1,18 @@
 
 {% extends 'layout.html' %}
 {% block content %}
+    <div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class=" breadcrumb-item">
+                    <a href="{% url 'users:home' %}" class="text-secondary">Home</a>
+                </li>
+                <li class=" breadcrumb-item text-success" aria-current="page">
+                    <a href="{{notification.get_absolute_url}}" class="text-secondary">Notification</a>
+                </li>
+            </ol>
+        </nav>
+    </div
     <div class="jumbotron" style="margin:1% 1% 1% 1%; padding: 1%">
         <div>
             <nav aria-label="breadcrumb">
@@ -18,13 +30,13 @@
             </nav>
         </div>
         <div class="bg-light">
-            <div class="">
+            <div class="text">
                 <p class="text-dark text-left">sent by : (<small class="text-warning">{{notification.sender.get_full_name}}</small>)</p>
                 <p class="text-dark text-left">Date/Time sent: (<small class="text-warning">{{notification.date_time_sent}}</small>)</p>
                 <p class="text-dark text-left">Message type : <small class="text-warning">({{notification.get_degree_display}})</small></p>
-                <div class="bg-dark text-light">
-                    <p class="text-info text-left">(Message)</p>
-                    <p class="text-light text-left">{{notification.message}}</p><br>
+                <div class="text-dark shadow">
+                    <p class="text-info text-left">(Message)</p><hr>
+                    <p class="text-dark text-left" style="white-space: pre-line;">{{notification.message}}</p><br>
                 </div>
             </div>
         </div>

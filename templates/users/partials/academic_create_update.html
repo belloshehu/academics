@@ -1,0 +1,27 @@
+{% block academic_update_create %}
+    {% comment%}
+        Display update or create academic profiles buttons based on user.
+    {% endcomment %}
+
+    {% if user.is_lecturer  %}
+        {% if academic  %}
+            <a class="btn btn-success text-light" href="{% url 'lecturer:lecturer-update' academic.id %}">
+                <i class="fa fa-pencil"></i> Update
+            </a>
+        {% else %}
+            <a class="btn btn-success text-light" href="{% url 'lecturer:lecturer-create' %}">
+                <i class="fa fa-plus"></i> New
+            </a>
+        {% endif %}
+    {% else %}
+        {% if academic  %}
+            <a class="btn btn-success text-light" href="{% url 'student:student-update' %}">
+                <i class="fa fa-pencil"></i> Update
+            </a>
+        {% else %}
+            <a class="btn btn-success text-light" href="{% url 'student:student-create' %}">
+                <i class="fa fa-plus"></i> New
+            </a>
+        {% endif %}
+    {% endif %}
+{% endblock academic_update_create %}

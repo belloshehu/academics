@@ -18,6 +18,7 @@ class Option(models.Model):
     )
     '''
     name = models.CharField(max_length=60, null=True)
+    abbreviated_name = models.CharField(max_length=15, null=True)
     department = models.ForeignKey(Department, on_delete=models.CASCADE)
 
     def __str__(self):

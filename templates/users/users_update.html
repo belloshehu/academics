@@ -2,43 +2,49 @@
 {% load crispy_forms_tags %}
 {% load static %}
 {% block content %}
-    <div class="card" style="margin:1% 1% 1% 1%; padding: 1%">
+    <div class="" style="margin:1% 1% 1% 1%; padding: 1%">
         <div class="row">
-            <div class="col-12">
+            <div class="col-md-12">
                 <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class=" breadcrumb-item text-danger h3">
-                                Personal profile form
-                            </li>
-                        </ol>
+                    <ol class="breadcrumb">
+                        <li class=" breadcrumb-item text-danger h3">
+                            Personal profile Update form
+                        </li>
+                    </ol>
                 </nav>
             </div>
-            <div class="col-12">
+            <div class="col-md-12">
                 <div class="row">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-10 col-sm-12 ">
-                        {% for message in messages %}
-                            <em class="title text-danger">{{message}}</em>
-                        {% endfor %}
-                        <form action="{% url 'users:users-update' %}" method='POST' class="input-shadow">
-                            {% csrf_token %}                    
-                            <div class="row">
-                                <div class="col-md-6 col-sm-12"> {{ form.first_name|as_crispy_field }} </div> 
-                                <div class="col-md-6"> {{ form.middle_name|as_crispy_field }} </div>   
-                                <div class="col-md-6 col-sm-12"> {{ form.last_name|as_crispy_field }} </div> 
-                                <div class="col-md-6 col-sm-12"> {{ form.phone_number|as_crispy_field }} </div>
-                            </div>    
-                            <div>
-                                <br>
-                                <button class="btn btn-primary text-light" type="submit" >Update</button>   
-                                <br>
-                                <br>
-                            </div>        
-                        </form>
+                    <div class="col-md-0"></div>
+                    <div class='col-md-12  col-sm-12'>
+                        <div class="card">
+                            <div class="card-body">
+                                {% for message in messages %}
+                                    <em class="title text-danger">{{message}}</em>
+                                {% endfor %}
+                                <form action="{% url 'users:users-update' %}" method='POST' class="">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12"> {{ form.first_name|as_crispy_field }} </div>
+                                        <div class="col-md-6"> {{ form.middle_name|as_crispy_field }} </div>
+                                        <div class="col-md-6 col-sm-12"> {{ form.last_name|as_crispy_field }} </div>
+                                        <div class="col-md-6 col-sm-12"> {{ form.phone_number|as_crispy_field }} </div>
+                                        <div class="col-md-6 col-sm-12"> {{ form.is_lecturer|as_crispy_field }} </div>
+                                        <div class="col-md-6 col-sm-12"> {{ form.is_hod|as_crispy_field }} </d
+                                    </div>
+                                    <div>
+                                        <br>
+                                        <button class="btn btn-info text-light" type="submit" >Update</button>
+                                        <a class="btn btn-warning text-light" href="{% url 'users:user-profile' %}" >Cancel</a>
+                                        <br>
+                                        <br>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-1"></div>
+                    <div class="col-md-0"></div>
                 </div>
-            
             </div>
         </div>
     </div>

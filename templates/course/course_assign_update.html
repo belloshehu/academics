@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+    <div class="" style="margin:1% 1% 1% 1%; padding: 1%">
+        <div class="row">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class=" breadcrumb-item text-danger h3">
+                            Change course Assignment
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-12">
+                <div class="row">
+                    <div class='col-md-0 col-sm-12'></div>
+                    <div class="col-md-12 col-sm-12">
+                        <div class="card">
+                            <!--div class="card-title h5">Student Profile form</div-->
+                            <div class="card-title">
+                               <div class="h3">Change lecturer assined to <quote class="text-info title">{{assigned_course.course.title}} </quote></div>
+                            </div>
+                            <div class="card-body">
+                                <form action="{% url 'course:course-assign-update' assigned_course.id %}"method='POST'>
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-md-6"> {{ form.lecturer|as_crispy_field }} </div>
+                                        <div class="col-md-6"> {{ form.is_joined|as_crispy_field }} </div>
+                                    </div>
+                                    <div>
+                                        <br>
+                                        <button class="btn btn-info text-light" type="submit" >Save</button>
+                                        <a class="btn btn-warning text-light" href="{% url 'department:detail' assigned_course.course.department.id %}" >Cancel</a>
+                                        <br>
+                                        <br>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class='col-md-0  col-sm-12'></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

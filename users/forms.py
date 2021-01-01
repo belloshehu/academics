@@ -13,7 +13,7 @@ class LoginForm(forms.Form):
         attrs={'placeholder':'Enter password', 'size':30})
     )
 
-    
+
 class StudentRegistrationForm(UserCreationForm):
     """Customer registration form."""
     username = forms.CharField(
@@ -37,7 +37,10 @@ class StudentRegistrationForm(UserCreationForm):
         max_length=250, required=True, help_text="", label='',
         widget=forms.TextInput(attrs={'placeholder': 'Email'})
     )
-    
+    phone_number = forms.CharField(
+        max_length=11, required=True, help_text="", label='',
+        widget=forms.TextInput(attrs={'placeholder': 'Phone number'})
+    )
     password1 = forms.CharField(
         max_length=250, required=True, help_text="", label='',
         widget=forms.PasswordInput(attrs={'placeholder': 'Password'})
@@ -52,19 +55,33 @@ class StudentRegistrationForm(UserCreationForm):
         model = User
         fields = (
             'username', 'first_name', 'last_name', 'middle_name',
-            'email', 'password1', 'password2',)
+            'email', 'phone_number', 'password1', 'password2',)
 
 
 class StaffRegistrationForm(StudentRegistrationForm):
-    is_teacher = forms.BooleanField(
-        label='',
-        widget=forms.CheckboxInput()
+    STATUS_CHOICE = (
+        (True,'Yes'),
+        (False, 'No'),
+        (None, '---Select yes or No---')
+    )
+    is_lecturer = forms.BooleanField(
+        label='Are you lecturer?',
+        widget=forms.Select(choices=STATUS_CHOICE),
+        initial=None,
+        required=True
         )
     is_hod = forms.BooleanField(
-        label='',
-        widget=forms.CheckboxInput()
+        label='Are you HOD?',
+        widget=forms.Select(choices=STATUS_CHOICE),
+        initial=None,
+        required=True
     )
 
-    class Meta:
+    class Meta(StudentRegistrationForm.Meta):
         model = User
-        fields = '__all__'
+        fields = (
+            'username', 'first_name', 'last_name',
+            'middle_name','email', 'phone_number',
+            'password1', 'password2','is_lecturer',
+            'is_hod'
+            )

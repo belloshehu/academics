@@ -1,0 +1,35 @@
+{% block lecturer_list %}
+    <div class="card">
+        <div class="card-header" id="heading-one">
+        <h5 class="mb-0">
+            <div class="pull-left">
+                <button class="btn btn-link text-info collapsed" data-toggle="collapse" data-target="#collapse-one" aria-expanded="false" aria-controls="collapseTwo">
+                    Lecturers<scan class="badge badge-pill badge-success text-light"> {{lecturers|length}}</scan>
+                </button>
+            </div>
+            {% if user.is_hod %}
+                <div class="pull-right">
+                    <a class="btn btn-success" href="#"><i class="fa fa-plus"> New</i></a>
+                </div>
+            {% endif %}
+        </h5>
+        </div>
+        <div id="collapse-one" class="collapse" aria-labelledby="heading-one" data-parent="#accordion">
+            <div class="card-body">
+                {% if lecturers %}
+                    {% for lecturer in lecturers %}
+                        <div class="jumbotron" style="margin:1% 1% 1% 1%; padding: 1%">
+                            <a class="no-decorations mosque-central" href="{% url 'lecturer:lecturer-detail' lecturer.id %}">
+                                <img class="rounded-circle text-left" src="{{lecturer.photo.url}}" title="{{lecturer.name}}" width="100" height="100">
+                                <span class="text-light title">{{lecturer.user.get_full_name|title}} (<small class="text-warning"> {{lecturer.option.abbreviated_name}} / {{lecturer.office}} /
+                                    {{lecturer.user.phone_number}} </small>)</span>
+                            </a>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class=" text-danger alert-info">Lecturers not added</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

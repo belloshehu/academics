@@ -21,21 +21,20 @@
                             <em class="title text-danger">{{message}}</em>
                         {% endfor %}
                         <form action="{% url 'notification:notification-update' notification.id %}" method='POST' class="">
-                            {% csrf_token %} 
-                                        
-                                <div class="row">
-                                    <div class="col-md-8 col-sm-12"> {{ form.title|as_crispy_field }} </div><hr>
-                                    <div class="col-md-6 col-sm-12"> {{ form.target_receiver|as_crispy_field }} </div><hr>
-                                    <div class="col-md-6"> {{ form.degree|as_crispy_field }} </div><hr>
-                                    <div class="col-md-12"> {{ form.message|as_crispy_field }} </div><hr>
-                                </div>   
-                                <div>
-                                    <br>
-                                    <button class="btn btn-lg btn-primary text-light" type="submit" >Save</button>   
-                                    <a class="btn btn-primary text-light" href="{{notification.get_absolute_url}}">Ignore changes</a>    
-                                    <br>
-                                    <br>
-                                </div>
+                            {% csrf_token %}           
+                            <div class="row">
+                                <div class="col-md-8 col-sm-12"> {{ form.title|as_crispy_field }} </div><hr>
+                                <div class="col-md-6 col-sm-12"> {{ form.target_receiver|as_crispy_field }} </div><hr>
+                                <div class="col-md-6"> {{ form.degree|as_crispy_field }} </div><hr>
+                                <div class="col-md-12"> {{ form.message|as_crispy_field }} </div><hr>
+                            </div>   
+                            <div>
+                                <br>
+                                <button class="btn btn-lg btn-primary text-light" type="submit" >Save</button>   
+                                <a class="btn btn-primary text-light" href="{{notification.get_absolute_url}}">Ignore changes</a>    
+                                <br>
+                                <br>
+                            </div>
                         </form>
                     </div>
                     <div class="col-md-1"></div>

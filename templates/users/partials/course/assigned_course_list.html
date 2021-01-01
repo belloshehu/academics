@@ -1,0 +1,27 @@
+{% block assigned_course_list %}
+    {% if courses %}
+        {% for course in courses %}
+            <div class="jumbotron" style="margin:1% 1% 1% 1%; padding: 5px">
+                <a class="no-decorations mosque-central" href="{{course.course.get_absolute_url}}">
+                    <span style="margin:1%;">
+                        {{course.course.title|title}}
+                        (<small class="text-warning">
+                            {{course.course.code}} / {{course.course.credit_unit}} /
+                            {{course.course.department.abbreviated_name|upper}} /
+                            {{course.course.option.abbreviated_name|upper}}
+                        </small>)
+                        <span class="text-info joined-course">
+                        {% if course.is_joined %}
+                            joined
+                        {% else %}
+                            not joined
+                        {% endif %}
+                        </span>
+                    </span>
+                </a>
+            </div>
+        {%endfor%}
+    {% else %}
+    <div class=" text-danger alert-info">No course is assigned to you!</div>
+    {% endif %}
+{% endblock %}

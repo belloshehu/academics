@@ -21,11 +21,13 @@
                             <li class=" breadcrumb-item text-danger h3">
                                 {{user.username|default_if_none:""}}
                             </li>
-                
+
                         </ol>
                     </nav>
                     {% include 'users/partials/personal_card.html' %}
-                    {% include 'users/partials/academic_card.html' %}
+                    {% if user.is_lecturer or user.is_student %}
+                        {% include 'users/partials/academic_card.html' %}
+                    {% endif %}
                     {% include 'users/partials/course_card.html' %}
                     {% include 'users/partials/result_card.html' %}
                     {% include 'users/partials/notification_card.html' %}
@@ -33,7 +35,6 @@
            </div>
         </div>
     </div>
-   
+
 </div>
 {% endblock %}
-

@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="container-fluid">
-        <div class="row fixed" style="text-align: center; border-bottom: 5px solid grey;border-top: 5px solid grey;"> 
+        <div class="row fixed" style="text-align: center; border-bottom: 5px solid grey;border-top: 5px solid grey;">
             <!--NAvigation bar start here-->
             <div class="col-xl-6 col-lg-6 col-md-10 col-sm-10">
                 {% include 'partials/nav.html' %}
@@ -39,30 +39,30 @@
             </div>
             <!--End of navigation bar-->{% block header %}{% endblock %}
         </div>
-    
-        
+
+
        <!-- main content-->
-        <div class="row">
+        <div class="row bg-info">
             <div class="container">
                 {% block layout %} {% endblock %}
            </div>
-        </div> 
+        </div>
         <!-- PAGE FOOTER -->
-        <!--div class="row bg-success footer text-light" style="padding:4% 0% 4% 0%; border-bottom: 5px solid grey;border-top: 5px solid grey;">            
+        <!--div class="row bg-success footer text-light" style="padding:4% 0% 4% 0%; border-bottom: 5px solid grey;border-top: 5px solid grey;">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 ">
                <div class="row">
-                  
+
                    <div class="col-xl-4 col-lg-4 col-md-4">
                        <div class="btn text-dark"><i class="fa fa-phone text-success" aria-hidden="false"></i> phone number</div>
                    </div>
-                   
+
                 </div>
             </div>
         </div-->
         <div class="text-center bg-light text-dark bold"> <small>@ 2020 company_name Inc. All Rights reserved</small> </div>
     </div>
     <script src="https://code.jquery.com/jquery.js"></script>
-                <!-- Include all compiled plugins (below), or include individual files as needed --> 
+                <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="{% static 'bootstrap/js/bootstrap.min.js'%}"></script>
 </body>
 </html>

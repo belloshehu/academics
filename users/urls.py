@@ -52,5 +52,10 @@ urlpatterns = [
         'staff-registration/',
         views.StaffUserCreateView.as_view(),
         name='staff-registration'
+    ),
+    path(
+        'signup-success/',
+        views.RegistrationSuccessView.as_view(),
+        name='signup-success'
     )
 ]

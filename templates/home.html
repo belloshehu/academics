@@ -1,10 +1,10 @@
 {% extends 'layout.html' %}
-{% block title %} Home {% endblock %} 
+{% block title %} Home {% endblock %}
 {% load static %}
 
 {% block content %}
     <!--link type="text/css" rel="stylesheet" href="{% static 'style/style1.css'%}"-->
-    
+
     <div id="site-info" class=" bg-dark" style="margin:1% 1% 1% 1%;">
         <div>
             <h1 class="site-name" style="font-family: forte;" class="">Welcome to P.T.I Academic site</h1><br>
@@ -17,10 +17,10 @@
                     <li>Qiuzes/Assignents preparation</li>
                 </ul>
             </p>
-    
+
         </div>
     </div>
- 
+
     <div class="text-dark state" style="margin:1% 1% 1% 1%; padding: 1%">
         <h2>Departments<sup><span class="badge badge-success">{{departments|length}}</span></sup></h2>
     </div>
@@ -32,13 +32,13 @@
                     <img class="rounded-circle text-left" src="{{department.logo.url}}" alt="{{department.name}}" width="20%" height="20%">
                     {{department.name}}({{department.abbreviated_name}})
                 </p>
-            </div>   
+            </div>
             </a>
         </div>
     {%endfor%}
 {%endblock%}
 {% block side-bar %}
-    {{block.super}}  
+    {{block.super}}
 {% endblock %}
 {% block state-items %}
         {{block.super}}

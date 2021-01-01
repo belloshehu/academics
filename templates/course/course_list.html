@@ -8,7 +8,7 @@
                     <div id="accordion">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item active" aria-current="page"><span class="text-danger">Courses</span></li>  
+                                <li class="breadcrumb-item active" aria-current="page"><span class="text-danger">Courses</span></li>
                             </ol>
                         </nav>
                         <div class="card">
@@ -30,7 +30,7 @@
                                     <div class="jumbotron" style="margin:1% 1% 1% 1%; padding: 5px">
                                         <a class="no-decorations mosque-central" href="{{course.get_absolute_url}}">
                                             <div class="text-light">
-                                                <p style="margin:1%;">{{course.title|title}} (<span>{{course.code}} / {{course.credit_unit}} /{{course.department}} / {{course.option}})</span></p>      
+                                                <p style="margin:1%;">{{course.title|title}} (<span>{{course.code}} / {{course.credit_unit}} /{{course.department.abbreviated_name}} / {{course.option.abbreviated_name}})</span></p>
                                             </div>
                                         </a>
                                     </div>
@@ -41,6 +41,6 @@
                     </div><!--End of accordion-->
                 </div>
             </div>
-        </div>    
+        </div>
     </div>
 {% endblock content %}

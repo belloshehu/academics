@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="pull-right">
-                {% if user.is_staff or user.is_course_ref %}
+                {% if user.is_staff or user.is_lecturer or user.is_course_ref %}
                     <a class="btn btn-success" href="{% url 'notification:notification-create' %}"><i class="fa fa-plus"></i> New</a>
                 {% endif %}
             </div>

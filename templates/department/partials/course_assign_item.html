@@ -1,0 +1,22 @@
+{% block course_assign_item %}
+    {% if assigned_courses %}
+        {% for assigned_course in assigned_courses %}
+            {% if course.name == assigned_course.course.name %}
+                <small class=" text-danger"> Assigned to
+                    {{assigned_course.lecturer.user.last_name}}
+                </small>
+                <a class="btn btn-sm btn-danger" href="{% url 'course:course-assign-delete' assigned_course.id %}">Un-assign</a>
+                <a class="btn btn-sm btn-info" href="{% url 'course:course-assign-update' assigned_course.id %}">change</a>
+            {% else %}
+                |
+                <a class="btn btn-warning"  href="{% url 'course:course-assign' course.id %}">
+                    Assign <i class="fa fa-user"></i>
+                </a>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+    | <a class="btn btn-warning" href="{% url 'course:course-assign' course.id %}" >
+    Assign <i class="fa fa-user"></i>
+    </a>
+    {% endif %}
+{% endblock %}

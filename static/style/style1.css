@@ -74,7 +74,7 @@ img>p{
     height:4%;
     margin-left:2%;
     margin-right: 80%;
-    
+
 }
 #total{
     margin-left: 80%;
@@ -82,7 +82,7 @@ img>p{
     color:white;
     margin: auto;
     padding: 5x;
-    
+
 }
 span{
     margin: 2%;
@@ -116,7 +116,7 @@ p > .cartitems{
     border-radius: 10px;
     margin-left: 5px;
     margin-right: 0%;
-    
+
 }
 .headertitle{
     margin-left: 10px;
@@ -128,7 +128,7 @@ p > .cartitems{
 }
 a:link{
     color: white;
-    
+
 }
 a:visited{
     color:white;
@@ -165,14 +165,14 @@ h1{color:white;
  .mytable-td,.mytable-th{
        border:2px solid blue;
        font-family:Verdana, Tahoma, sans-serif;
-       color:white; 
-        background-color:black; 
+       color:white;
+        background-color:black;
         padding:5px;
-        font-size: 1.3em; 
-        border-radius: 10px;  
+        font-size: 1.3em;
+        border-radius: 10px;
         width:12%;
    }
-  
+
 table{
     float: none;
     margin-left:25%;
@@ -186,7 +186,7 @@ p{
     margin-left: 5%;
 }
 footer {margin-bottom: 0%;
-      
+
       }
 .container {
     background-color:white ;
@@ -274,7 +274,7 @@ textarea {
     border: 1px white solid;
 }
 @media(min-width: 499px){
-    
+
     .logo img {
         text-align: left;
         float: left;
@@ -400,6 +400,8 @@ div, p {
 }
 body{
     margin: 0px 10px;
+    font-size: smaller;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .length-size {
     font-size: 50px;

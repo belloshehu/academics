@@ -18,7 +18,7 @@ class Department(models.Model):
     )
     name = models.CharField(max_length=100, null=True)
     abbreviated_name = models.CharField(max_length=10, null=True)
-    logo = models.FileField(upload_to='media/images/department', null=True)
+    logo = models.FileField(upload_to='images/department', null=True)
     office = models.CharField(max_length=100, null=True)
     activity_type = models.CharField(choices=TYPE, max_length=20, default='academic')
     phone_number = models.CharField(max_length=11, null=True)
