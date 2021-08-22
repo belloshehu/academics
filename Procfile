@@ -1,0 +1,1 @@
+web: gunicorn sightek-academics.wsgi --log-file -

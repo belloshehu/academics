@@ -9,9 +9,10 @@
                     <div id="accordion">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item active text-danger" aria-current="page">
+                                <li class="breadcrumb-item active text-success h3" aria-current="page">
                                     <img class="rounded-circle text-left" src="{{department.logo.url}}" alt="{{department.name}}" width="100" height="100">
-                                    {{department.name|title}} Department</li>
+                                    {{department.name|title}} Department
+                                </li>
                             </ol>
                         </nav>
                         {% include 'department/partials/lecturer_card.html' %}
