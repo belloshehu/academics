@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 # from decouple import config
 from pathlib import Path
 import os
+import django_heroku
 from decouple import config
 import dj_database_url
 
@@ -150,5 +151,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Crispy forms
-# django_heroku.settings(locals())
+django_heroku.settings(locals())
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
