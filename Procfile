@@ -1,1 +1,1 @@
-web: gunicorn sightek-academics.wsgi --log-file -
+web: gunicorn academics.wsgi --log-file -
